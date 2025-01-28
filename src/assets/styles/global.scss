@@ -1,0 +1,282 @@
+@import "./variables";
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 10px;
+}
+
+.title {
+  margin-bottom: 30px;
+  font-size: x-large;
+  &::first-letter {
+    color: blue;
+  }
+}
+
+.socials-link {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+
+  i {
+    transition: 0.3s;
+    &:hover {
+      transform: scale(0.9);
+    }
+  }
+}
+
+nav {
+  z-index: 100;
+  position: sticky;
+  top: 0;
+  background-color: $primary;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 5px 5px;
+  color: white;
+  .container {
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .socials-link {
+    background-color: white;
+    padding: 3px 20px;
+    border-radius: 20px;
+  }
+  .quicks-link {
+    display: flex;
+    gap: 2rem;
+    list-style-type: none;
+
+    li {
+      text-transform: uppercase;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: 0.3s;
+      &:hover {
+        color: darken($color: white, $amount: 20);
+      }
+    }
+  }
+}
+
+.home {
+  text-align: center;
+  .container {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .avatar {
+    .img {
+      padding: 10px;
+      clip-path: circle();
+      background-color: $secondary;
+      transition: 0.3s;
+      &:hover {
+        background-color: black;
+      }
+      img {
+        clip-path: circle();
+        box-shadow: $secondary -3px -3px 5px;
+      }
+    }
+  }
+
+  .bio {
+    gap: 1rem;
+
+    p {
+      font-size: calc(10px + (35 - 20) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    h1 {
+      font-size: calc(25px + (35 - 20) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    h3 {
+      font-size: calc(15px + (35 - 20) * ((100vw - 300px) / (1600 - 300)));
+    }
+  }
+  .skills {
+    display: inline-block;
+    margin-top: 20px;
+  }
+  .skills ul {
+    display: flex;
+    gap: 2rem;
+    // background-color: $secondary;
+    // padding: 10px 20px;
+    // border-radius: 20px;
+    // display: inline-block;
+    i {
+      // background-color: $secondary;
+
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+.projects {
+  background-color: $primary;
+  color: white;
+
+  .content {
+    display: grid;
+    gap: 2rem;
+  }
+}
+
+@keyframes to-right {
+  from {
+    // transform: translateY(-100px) ;
+    // opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.project {
+  border-radius: 20px;
+  transition: 0.3s;
+  overflow: hidden;
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+    a {
+      opacity: 1;
+    }
+  }
+  .project-img {
+    background-image: linear-gradient(to bottom, $secondary 50%, white);
+    padding: 20px;
+    background-color: $secondary;
+    text-align: center;
+    img {
+      width: 75%;
+      transition: 0.3s;
+    }
+  }
+  .project-text {
+    background-image: linear-gradient(to top, $secondary 10%, white);
+
+    padding: 20px;
+    background-color: white;
+    color: black;
+  }
+
+  .project-title {
+    font-size: large;
+    text-transform: uppercase;
+  }
+  .project-description {
+    margin: 10px 0;
+    color: gray;
+  }
+
+  a {
+    // color: rgba(0, 0, 0, 0.514);
+    color: black;
+    transition: 0.3s;
+    opacity: 0;
+    &::after {
+      content: " → ";
+    }
+    &:hover {
+      //   color: initial;
+      text-decoration: underline;
+    }
+  }
+}
+
+.contact {
+  form {
+    display: grid;
+    background-color: $primary;
+    color: white;
+    padding: 50px;
+    border-radius: 10px;
+
+    gap: 0.5rem;
+    label {
+      &:after {
+        content: "*";
+        color: red;
+      }
+    }
+    input,
+    textarea {
+      // background-color: white;
+      border: none;
+      padding: 5px;
+      border-radius: 5px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      border: none;
+      transition: 0.3s;
+      background-color: blue;
+      color: white;
+
+      &:hover {
+        background-color: darken($color: blue, $amount: 10);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+footer {
+  .container {
+    display: grid;
+    justify-items: center;
+    border-top: 1px solid $secondary;
+    padding-top: 20px;
+  }
+
+  .socials-link {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .projects .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
